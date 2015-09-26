@@ -1,0 +1,37 @@
+<div class="jumbotron" ng-show="!showForm">
+  <h1>Pingle License Verification Demo</h1>
+  <p class="lead">
+    Verifiably Simple.
+  </p>
+  <p><a class="btn btn-lg btn-success" ng-click="showForm = true">Get Started <span class="glyphicon glyphicon-ok"></span></a></p>
+</div>
+
+<div ng-show="showForm">
+  <form>
+    <div class="form-group">
+      <label for="inputState">State</label>
+      <select class="form-control" id="inputState" ng-model="selectedState" ng-change="getTradeOptions(selectedState) ">
+        <option value="WA">Washington</option>
+        <option value="CA">California</option>
+        <option value="NY">New York</option>
+        <option value="NJ">New Jersey</option>
+        <option value="CT">Connecticut</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="inputTrade">Trade</label>
+      <select class="form-control" id="inputTrade" ng-options="trade.value as trade.label for trade in tradeOptions" ng-model="selectedTrade"></select>
+    </div>
+    <div class="form-group">
+      <label for="inputLicense">License #</label>
+      <input type="text" class="form-control" id="inputLicense" placeholder="BFLE466455285" ng-model="licenseNumber">
+    </div>
+    <button type="submit" class="btn btn-primary" ng-click="submit()">Submit</button>
+  </form>
+</div>
+<br>
+
+<div ng-show="verificationComplete">
+  <verification-results results="taskResults"></verification-results>
+</div>
+

@@ -1,0 +1,14 @@
+<div>
+  <address>
+    <strong>{{ results.lastName }}, {{ results.firstName }}</strong><br>
+    <a href="mailto:#">{{ results.email }}</a>
+  </address>
+
+  <address>
+    <strong>{{ results.businessName }}</strong><br>
+    {{ results.businessAddress.address }}<br>
+    {{ results.businessAddress.address2 }}<br ng-if="results.businessAddress2">
+    {{ results.businessAddress.city }}, {{ results.businessAddress.state }} {{ results.businessAddress.zipCode }}<br>
+    <abbr title="Phone">P:</abbr> {{ results.businessAddress.phone }}
+  </address>
+</div>
